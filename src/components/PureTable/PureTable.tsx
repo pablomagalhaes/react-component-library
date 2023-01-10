@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import NewTable from "./NewTable";
-import {  Styles } from './styles'
+import { Styles } from './styles';
 
 export interface PureTableProps {
     Data?: Array<string>;

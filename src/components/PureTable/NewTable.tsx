@@ -1,7 +1,6 @@
 import React, { useRef,useEffect, useCallback } from "react";
 
 import { Button } from "reactstrap";
-import ReactTooltip from "react-tooltip";
 import { CornerUpLeft, Download } from "react-feather";
 import { useTable, useAbsoluteLayout, useBlockLayout, TableInstance, TableOptions, Column,  } from "react-table";
 
