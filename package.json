@@ -1,5 +1,8 @@
 {
-  "name": "react-component-library",
+  "name": "@pablomagalhaes/react-component-library",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/pablomagalhaes"
+  },
   "version": "0.0.1",
   "description": "",
   "scripts": {
