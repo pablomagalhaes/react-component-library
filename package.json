@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/pablomagalhaes"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "scripts": {
     "rollup": "rollup -c",
@@ -22,6 +22,8 @@
     "@types/styled-components": "^5.1.26",
     "exceljs": "^4.3.0",
     "file-saver": "^2.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-table": "^7.8.0",
     "react-window": "^1.8.8",
