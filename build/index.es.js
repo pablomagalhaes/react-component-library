@@ -1,5 +1,5 @@
 import { __assign, __makeTemplateObject } from 'tslib';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useMemo, useRef, useCallback, useState, useEffect } from 'react';
 import { Button as Button$1 } from 'reactstrap';
 import { CornerUpLeft, Download } from 'react-feather';
 import { useTable, useBlockLayout } from 'react-table';
@@ -54,7 +54,7 @@ var NewTable = function (_a) {
         // @ts-ignore
         initialValue = _a.value, index = _a.row.index, id = _a.column.id;
         // We need to keep and update the state of the cell normally
-        var _b = React.useState(initialValue), value = _b[0], setValue = _b[1];
+        var _b = useState(initialValue), value = _b[0], setValue = _b[1];
         var onChange = function (e) {
             setValue(e.target.value);
         };
@@ -77,7 +77,7 @@ var NewTable = function (_a) {
     var defaultColumn = {
         Cell: EditableCell,
     };
-    var scrollBarSize = React.useMemo(function () { return scrollbarWidth(); }, []);
+    var scrollBarSize = useMemo(function () { return scrollbarWidth(); }, []);
     // Use the state and functions returned from useTable to build your UI
     var _c = useTable({
         // @ts-ignore
@@ -105,7 +105,7 @@ var NewTable = function (_a) {
     //       `${fileName || "Excel_Export"}_${new Date().toLocaleDateString()}`,
     //     );
     //   }, [fileName, columns, defaultColumn, rows]);
-    var RenderRow = React.useCallback(
+    var RenderRow = useCallback(
     // @ts-ignore
     function (_a) {
         var index = _a.index, style = _a.style;
@@ -135,14 +135,6 @@ var NewTable = function (_a) {
     //   [prepareRow, rows]
     // )
     var react_table = useRef();
-    var handleClick = function (e) {
-        if (e.nativeEvent.button === 0) {
-            console.log('Left click');
-        }
-        else if (e.nativeEvent.button === 2) {
-            console.log('Right click');
-        }
-    };
     return (React.createElement(React.Fragment, null,
         React.createElement(Button$1, { color: "primary", onClick: undoData, size: "md", className: "shadow-sm mr-1", "data-tip": true, "data-for": "UndoTip" },
             React.createElement(CornerUpLeft, { className: "feather", size: 30, style: { marginTop: "-5px" } }),
@@ -159,9 +151,7 @@ var NewTable = function (_a) {
                 // ref={react_table} 
                 id: "react_table" }),
                 React.createElement("thead", null, headerGroups.map(function (headerGroup) { return (React.createElement("tr", __assign({}, headerGroup.getHeaderGroupProps()), headerGroup.headers.map(function (column) {
-                    return (React.createElement("th", __assign({}, column.getHeaderProps(), { className: "Colheader", onClick: function (e) {
-                            handleClick(e);
-                        } }), column.render("Header")));
+                    return (React.createElement("th", __assign({}, column.getHeaderProps(), { className: "Colheader" }), column.render("Header")));
                 }))); })),
                 React.createElement("tbody", __assign({}, getTableBodyProps()),
                     React.createElement(FixedSizeList, { height: 400, itemCount: rows.length, itemSize: 35, width: totalColumnsWidth + scrollBarSize }, RenderRow))))));
@@ -207,7 +197,7 @@ var PureTable = function (props) {
                 // @ts-ignore
                 var valores = Number(arr[row][index]);
                 // @ts-ignore
-                // currentRow2[`${c.accessor}`] = valores;
+                currentRow2["" + c.accessor] = valores;
             });
         });
         rows.push(currentRow2);

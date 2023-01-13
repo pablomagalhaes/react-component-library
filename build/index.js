@@ -61,7 +61,7 @@ var NewTable = function (_a) {
         // @ts-ignore
         initialValue = _a.value, index = _a.row.index, id = _a.column.id;
         // We need to keep and update the state of the cell normally
-        var _b = React__default.useState(initialValue), value = _b[0], setValue = _b[1];
+        var _b = React.useState(initialValue), value = _b[0], setValue = _b[1];
         var onChange = function (e) {
             setValue(e.target.value);
         };
@@ -84,7 +84,7 @@ var NewTable = function (_a) {
     var defaultColumn = {
         Cell: EditableCell,
     };
-    var scrollBarSize = React__default.useMemo(function () { return scrollbarWidth(); }, []);
+    var scrollBarSize = React.useMemo(function () { return scrollbarWidth(); }, []);
     // Use the state and functions returned from useTable to build your UI
     var _c = reactTable.useTable({
         // @ts-ignore
@@ -112,7 +112,7 @@ var NewTable = function (_a) {
     //       `${fileName || "Excel_Export"}_${new Date().toLocaleDateString()}`,
     //     );
     //   }, [fileName, columns, defaultColumn, rows]);
-    var RenderRow = React__default.useCallback(
+    var RenderRow = React.useCallback(
     // @ts-ignore
     function (_a) {
         var index = _a.index, style = _a.style;
@@ -142,14 +142,6 @@ var NewTable = function (_a) {
     //   [prepareRow, rows]
     // )
     var react_table = React.useRef();
-    var handleClick = function (e) {
-        if (e.nativeEvent.button === 0) {
-            console.log('Left click');
-        }
-        else if (e.nativeEvent.button === 2) {
-            console.log('Right click');
-        }
-    };
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement(reactstrap.Button, { color: "primary", onClick: undoData, size: "md", className: "shadow-sm mr-1", "data-tip": true, "data-for": "UndoTip" },
             React__default.createElement(reactFeather.CornerUpLeft, { className: "feather", size: 30, style: { marginTop: "-5px" } }),
@@ -166,9 +158,7 @@ var NewTable = function (_a) {
                 // ref={react_table} 
                 id: "react_table" }),
                 React__default.createElement("thead", null, headerGroups.map(function (headerGroup) { return (React__default.createElement("tr", tslib.__assign({}, headerGroup.getHeaderGroupProps()), headerGroup.headers.map(function (column) {
-                    return (React__default.createElement("th", tslib.__assign({}, column.getHeaderProps(), { className: "Colheader", onClick: function (e) {
-                            handleClick(e);
-                        } }), column.render("Header")));
+                    return (React__default.createElement("th", tslib.__assign({}, column.getHeaderProps(), { className: "Colheader" }), column.render("Header")));
                 }))); })),
                 React__default.createElement("tbody", tslib.__assign({}, getTableBodyProps()),
                     React__default.createElement(reactWindow.FixedSizeList, { height: 400, itemCount: rows.length, itemSize: 35, width: totalColumnsWidth + scrollBarSize }, RenderRow))))));
@@ -214,7 +204,7 @@ var PureTable = function (props) {
                 // @ts-ignore
                 var valores = Number(arr[row][index]);
                 // @ts-ignore
-                // currentRow2[`${c.accessor}`] = valores;
+                currentRow2["" + c.accessor] = valores;
             });
         });
         rows.push(currentRow2);

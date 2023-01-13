@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/pablomagalhaes"
   },
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "files": [

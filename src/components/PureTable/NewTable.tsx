@@ -138,7 +138,6 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
               })}
               // className="td"
               >
-                // @ts-ignore
                 {cell.render('Cell')}
               </div>
             )
