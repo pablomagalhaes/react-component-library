@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import NewTable from "./NewTable";
 
@@ -108,7 +108,7 @@ const PureTable = (props: PureTableProps) => {
             // @ts-ignore
             let valores = Number(arr[row][index]);
             // @ts-ignore
-            // currentRow2[`${c.accessor}`] = valores;
+            currentRow2[`${c.accessor}`] = valores;
           })
         })
         rows.push(currentRow2);

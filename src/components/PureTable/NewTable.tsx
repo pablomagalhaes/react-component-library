@@ -1,4 +1,4 @@
-import React, { useRef,useEffect, useCallback } from "react";
+import React, { useRef,useState, useEffect, useMemo, useCallback } from "react";
 
 import { Button } from "reactstrap";
 import { CornerUpLeft, Download } from "react-feather";
@@ -36,7 +36,7 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
   }) => {
 
     // We need to keep and update the state of the cell normally
-    const [value, setValue] = React.useState(initialValue)
+    const [value, setValue] = useState(initialValue)
 
     const onChange = (e: { target: { value: any; }; }) => {
       setValue(e.target.value)
@@ -64,7 +64,7 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
     Cell: EditableCell,
   }
 
-  const scrollBarSize = React.useMemo(() => scrollbarWidth(), [])
+  const scrollBarSize = useMemo(() => scrollbarWidth(), [])
 
   const options: TableOptions<{ col1: string; col2: string }> = {
     // @ts-ignore
@@ -115,7 +115,7 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
 //   }, [fileName, columns, defaultColumn, rows]);
 
 
-  const RenderRow = React.useCallback(
+  const RenderRow = useCallback(
     // @ts-ignore
     ({ index, style }) => {
       const row = rows[index]
@@ -131,12 +131,14 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
             return (
               <div 
               // {...cell.getCellProps()}
+              // @ts-ignore
               {...cell.getCellProps({
                 // @ts-ignore
                 className: `td ${cell.column.className}`
               })}
               // className="td"
               >
+                // @ts-ignore
                 {cell.render('Cell')}
               </div>
             )
@@ -164,14 +166,6 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
 
   const react_table = useRef();
 
-
-  const handleClick = (e: React.MouseEvent<HTMLTableHeaderCellElement, MouseEvent>) => {
-    if (e.nativeEvent.button === 0) {
-      console.log('Left click');
-    } else if (e.nativeEvent.button === 2) {
-      console.log('Right click');
-    }
-  };
     return (
         <>
             <Button
@@ -245,9 +239,9 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
                         return (
                         <th {...column.getHeaderProps()} 
                         className="Colheader"
-                        onClick={(e) => {
-                            handleClick(e)
-                        }}
+                        // onClick={(e) => {
+                        //     handleClick(e)
+                        // }}
                         >
                             {column.render("Header")}
                         </th>
