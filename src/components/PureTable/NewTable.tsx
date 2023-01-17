@@ -232,21 +232,17 @@ const NewTable = ({ columns, data, exportExcel = false, fileName, resetData, und
                 <thead
                 // ref={tHeadRef}
                 >
-                {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map(column => {
-                        return (
-                        <th {...column.getHeaderProps()} 
-                        className="Colheader"
-                        // onClick={(e) => {
-                        //     handleClick(e)
-                        // }}
-                        >
-                            {column.render("Header")}
-                        </th>
-                        );
-                    })}
-                    </tr>
+                 {headerGroups.map(headerGroup => (
+                     <tr {...headerGroup.getHeaderGroupProps()}>
+                     {headerGroup.headers.map(column => {
+                        // @ts-ignore
+                        return column.hideHeader === false ? null : (
+                         <th {...column.getHeaderProps()}>
+                           {column.render("Header")}
+                         </th>
+                       );
+                     })}
+                   </tr>
                 ))}
                 </thead>
                 <tbody 

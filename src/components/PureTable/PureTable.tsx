@@ -58,6 +58,7 @@ export interface PureTableProps {
     Data?: Array<string>;
     HeaderWell?: Array<string>;
     HeadersLogs?: Array<string>;
+    hideHeader?: boolean;
   }
 
 const PureTable = (props: PureTableProps) => {
@@ -76,6 +77,7 @@ const PureTable = (props: PureTableProps) => {
     cols.push({
       // @ts-ignore
       Header:  nestedWell[0].label,
+      hideHeader: props.hideHeader,
       columns: []
     })
   

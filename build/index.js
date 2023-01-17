@@ -158,7 +158,8 @@ var NewTable = function (_a) {
                 // ref={react_table} 
                 id: "react_table" }),
                 React__default.createElement("thead", null, headerGroups.map(function (headerGroup) { return (React__default.createElement("tr", tslib.__assign({}, headerGroup.getHeaderGroupProps()), headerGroup.headers.map(function (column) {
-                    return (React__default.createElement("th", tslib.__assign({}, column.getHeaderProps(), { className: "Colheader" }), column.render("Header")));
+                    // @ts-ignore
+                    return column.hideHeader === false ? null : (React__default.createElement("th", tslib.__assign({}, column.getHeaderProps()), column.render("Header")));
                 }))); })),
                 React__default.createElement("tbody", tslib.__assign({}, getTableBodyProps()),
                     React__default.createElement(reactWindow.FixedSizeList, { height: 400, itemCount: rows.length, itemSize: 35, width: totalColumnsWidth + scrollBarSize }, RenderRow))))));
@@ -177,6 +178,7 @@ var PureTable = function (props) {
     cols.push({
         // @ts-ignore
         Header: nestedWell[0].label,
+        hideHeader: props.hideHeader,
         columns: []
     });
     // console.log('cols before', cols);
