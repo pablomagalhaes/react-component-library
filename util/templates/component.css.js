@@ -1,8 +1,8 @@
 module.exports = (componentName) => ({
-    content: `// Gerado em util/create-component.js
-  .foo-bar {
-    color: var(--harvey-green);
-  }
-  `,
-    extension: `.css`
-  });
+  content: `// Generated with util/create-component.js
+.foo-bar {
+  color: var(--harvey-green);
+}
+`,
+  extension: `.css`
+});

@@ -2,16 +2,18 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var tslib = require('tslib');
 var React = require('react');
-var React__default = _interopDefault(React);
 var reactstrap = require('reactstrap');
 var reactFeather = require('react-feather');
 var reactTable = require('react-table');
 var reactWindow = require('react-window');
-var styled = _interopDefault(require('styled-components'));
+var styled = require('styled-components');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 
 var scrollbarWidth = function () {
     // thanks too https://davidwalsh.name/detect-scrollbar-width
@@ -50,16 +52,15 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  font-family: \"Lato\", Arial;\n  font-size: 14px;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }\n\n.react_table--wrapper {\n  margin-top: 30px;\n  overflow: hidden; }\n  .react_table--wrapper table {\n    border-spacing: 0;\n    border-collapse: collapse;\n    background-color: #fff; }\n  .react_table--wrapper thead {\n    background-color: #f7f7f7;\n    will-change: transform;\n    position: relative; }\n    .react_table--wrapper thead tr:last-child {\n      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15); }\n    .react_table--wrapper thead.fixed_thead {\n      top: 0;\n      position: fixed;\n      z-index: 10; }\n      .react_table--wrapper thead.fixed_thead + tbody:before,\n      .react_table--wrapper thead.fixed_thead + tbody:after {\n        content: \"\";\n        display: block;\n        background-color: #ffffff;\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 16px;\n        height: 73px; }\n        @media screen and (max-width: 1000px) {\n          .react_table--wrapper thead.fixed_thead + tbody:before,\n          .react_table--wrapper thead.fixed_thead + tbody:after {\n            display: none; } }\n      .react_table--wrapper thead.fixed_thead + tbody:after {\n        right: 0;\n        left: auto; }\n  .react_table--wrapper tbody tr:hover {\n    background-color: #f1f1f1; }\n  .react_table--wrapper tr {\n    outline: 0;\n    vertical-align: middle; }\n  .react_table--wrapper th {\n    position: relative;\n    font-weight: 700;\n    text-align: center;\n    white-space: nowrap;\n    color: #4b4b4b;\n    vertical-align: top;\n    will-change: transform;\n    width: 100px;\n    border: 1px solid #ccc;\n    background-color: #f0f0f0;\n    padding: 10px 10px; }\n    .react_table--wrapper th > div:first-child {\n      line-height: 26px; }\n  .react_table--wrapper td {\n    vertical-align: middle;\n    color: #4b4b4b;\n    border: 1px solid #353535;\n    background-color: #FFFFFF; }\n    .react_table--wrapper td > div:first-child {\n      min-width: 0;\n      text-align: center;\n      word-break: normal;\n      display: inline-table; }\n    .react_table--wrapper td input {\n      font-size: 1rem;\n      padding: 0.5rem;\n      margin: 0;\n      border: 0;\n      width: 100%;\n      height: 100%; }\n\n.pagination {\n  padding: 16px 32px;\n  background-color: #f7f7f7;\n  text-align: center; }\n\n.svg-icon {\n  display: inline-block;\n  fill: #a29060; }\n  .svg-icon--disabled {\n    cursor: default;\n    fill: #a7a9ac !important; }\n    .svg-icon--disabled:hover {\n      cursor: default;\n      opacity: 1; }\n  .svg-icon-info {\n    fill: #a7a9ac; }\n  .svg-icon.rotate-mirror {\n    transform: scaleX(-1) rotate(-90deg); }\n\n.custom-scroll {\n  display: none;\n  position: absolute;\n  height: 26px;\n  left: 0;\n  right: 0;\n  bottom: 28px;\n  padding: 9px 12px;\n  z-index: 1;\n  cursor: pointer;\n  background-color: #f7f7f7; }\n  .custom-scroll--active {\n    position: relative;\n    overflow: hidden !important;\n    padding-bottom: 32px; }\n    .custom-scroll--active .custom-scroll {\n      display: block; }\n  .custom-scroll--content {\n    height: 100%;\n    width: 100%;\n    overflow: hidden;\n    overflow-x: scroll;\n    overflow: -moz-scrollbars-none;\n    -ms-overflow-style: none; }\n    .custom-scroll--content::-webkit-scrollbar {\n      width: 0 !important; }\n  .custom-scroll-line {\n    background: #9fa1a4;\n    position: relative;\n    width: 80%;\n    height: 8px;\n    left: 0;\n    border-radius: 3px;\n    transition: 0.1s width ease-out;\n    min-width: 40px; }\n    .custom-scroll-line-container {\n      width: 100%;\n      position: relative;\n      overflow: hidden; }\n      .custom-scroll-line-container:before {\n        content: '';\n        position: absolute;\n        top: 0;\n        left: 0;\n        right: 0;\n        height: 8px;\n        background: #f7f7f7;\n        border-radius: 3px; }\n  .custom-scroll--fixed .custom-scroll {\n    position: fixed;\n    padding: 8px 24px;\n    background: #f7f7f7;\n    transition: 0.1s left ease-out;\n    bottom: 0px; }\n    .custom-scroll--fixed .custom-scroll-line-container:before {\n      background: #ffffff; }\n\n.td {\n  vertical-align: middle;\n  color: #4b4b4b;\n  border: 1px solid #ccc;\n  background-color: #FFFFFF; }\n  .td > div:first-child {\n    min-width: 0;\n    text-align: center;\n    word-break: normal;\n    display: inline-table; }\n  .td input {\n    font-size: 1rem;\n    padding: 0.5rem;\n    margin: 0;\n    border: 0;\n    width: 100%;\n    height: 100%; }\n\n.frozen {\n  background: #f5f5f5; }\n\n.contextMenu {\n  position: fixed;\n  background: white;\n  box-shadow: 0px 2px 10px #999999; }\n  .contextMenu--option {\n    padding: 6px 50px 5px 10px;\n    min-width: 160px;\n    cursor: default;\n    font-size: 12px; }\n    .contextMenu--option:hover {\n      background: linear-gradient(to top, #555, #333);\n      color: white; }\n    .contextMenu--option:active {\n      color: #e9e9e9;\n      background: linear-gradient(to top, #555, #444); }\n    .contextMenu--option__disabled {\n      color: #999999;\n      pointer-events: none; }\n  .contextMenu--separator {\n    width: 100%;\n    height: 1px;\n    background: #CCCCCC;\n    margin: 0 0 0 0; }\n\n.menu {\n  font-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc; }\n\n.menu__item {\n  padding: 0.5em 1em;\n  color: #000;\n  cursor: pointer;\n  display: flex;\n  align-items: center; }\n\n.menu__item:hover {\n  background-color: #f2f2f2;\n  border-left: 4px solid #ccc; }\n\n.menu__icon {\n  margin-right: 8px; }\n\n.divider {\n  border-bottom: 1px solid #eee;\n  margin: 10px 0; }\n\n.context-sub-menu,\n.context-menu {\n  position: fixed;\n  background: #fff;\n  z-index: 9999999;\n  width: 120px;\n  margin: 0;\n  padding: 5px 0;\n  border-radius: 2px;\n  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);\n  font-size: 12px; }\n\n.context-menu .context-menu-item {\n  height: 30px;\n  display: flex;\n  align-items: center;\n  padding: 6px 10px;\n  cursor: pointer;\n  position: relative;\n  border-bottom: 1px solid #f2f2f2; }\n\n.context-menu .context-menu-item span {\n  display: block;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.context-menu-item:last-of-type {\n  border-bottom: none; }\n\n.context-menu .context-menu-item:hover {\n  background: #f2f2f2; }\n\n.context-menu .context-sub-menu {\n  position: absolute;\n  top: 0;\n  left: 100%;\n  display: none;\n  width: 100px; }\n\n.context-menu .context-menu-item:hover > .context-sub-menu {\n  display: block; }\n\n.context-menu.left .context-sub-menu {\n  left: 0;\n  transform: translateX(-100%); }\n\n.context-menu.top .context-sub-menu {\n  top: 100%;\n  transform: translateY(-100%); }\n\n.context-menu.left.top .context-sub-menu {\n  transform: translate(-100%, -100%); }\n";
-styleInject(css_248z);
+var css_248z$1 = "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  font-family: \"Lato\", Arial;\n  font-size: 14px;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }\n\n.react_table--wrapper {\n  margin-top: 30px;\n  overflow: hidden; }\n  .react_table--wrapper table {\n    border-spacing: 0;\n    border-collapse: collapse;\n    background-color: #fff; }\n  .react_table--wrapper thead {\n    background-color: #f7f7f7;\n    will-change: transform;\n    position: relative; }\n    .react_table--wrapper thead tr:last-child {\n      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15); }\n    .react_table--wrapper thead.fixed_thead {\n      top: 0;\n      position: fixed;\n      z-index: 10; }\n      .react_table--wrapper thead.fixed_thead + tbody:before,\n      .react_table--wrapper thead.fixed_thead + tbody:after {\n        content: \"\";\n        display: block;\n        background-color: #ffffff;\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 16px;\n        height: 73px; }\n        @media screen and (max-width: 1000px) {\n          .react_table--wrapper thead.fixed_thead + tbody:before,\n          .react_table--wrapper thead.fixed_thead + tbody:after {\n            display: none; } }\n      .react_table--wrapper thead.fixed_thead + tbody:after {\n        right: 0;\n        left: auto; }\n  .react_table--wrapper tbody tr:hover {\n    background-color: #f1f1f1; }\n  .react_table--wrapper tr {\n    outline: 0;\n    vertical-align: middle; }\n  .react_table--wrapper th {\n    position: relative;\n    font-weight: 700;\n    text-align: center;\n    white-space: nowrap;\n    color: #4b4b4b;\n    vertical-align: top;\n    will-change: transform;\n    width: 100px;\n    border: 1px solid #ccc;\n    background-color: #f0f0f0;\n    padding: 10px 10px; }\n    .react_table--wrapper th > div:first-child {\n      line-height: 26px; }\n  .react_table--wrapper td {\n    vertical-align: middle;\n    color: #4b4b4b;\n    border: 1px solid #353535;\n    background-color: #FFFFFF; }\n    .react_table--wrapper td > div:first-child {\n      min-width: 0;\n      text-align: center;\n      word-break: normal;\n      display: inline-table; }\n    .react_table--wrapper td input {\n      font-size: 1rem;\n      padding: 0.5rem;\n      margin: 0;\n      border: 0;\n      width: 100%;\n      height: 100%; }\n\n.pagination {\n  padding: 16px 32px;\n  background-color: #f7f7f7;\n  text-align: center; }\n\n.svg-icon {\n  display: inline-block;\n  fill: #a29060; }\n  .svg-icon--disabled {\n    cursor: default;\n    fill: #a7a9ac !important; }\n    .svg-icon--disabled:hover {\n      cursor: default;\n      opacity: 1; }\n  .svg-icon-info {\n    fill: #a7a9ac; }\n  .svg-icon.rotate-mirror {\n    transform: scaleX(-1) rotate(-90deg); }\n\n.custom-scroll {\n  display: none;\n  position: absolute;\n  height: 26px;\n  left: 0;\n  right: 0;\n  bottom: 28px;\n  padding: 9px 12px;\n  z-index: 1;\n  cursor: pointer;\n  background-color: #f7f7f7; }\n  .custom-scroll--active {\n    position: relative;\n    overflow: hidden !important;\n    padding-bottom: 32px; }\n    .custom-scroll--active .custom-scroll {\n      display: block; }\n  .custom-scroll--content {\n    height: 100%;\n    width: 100%;\n    overflow: hidden;\n    overflow-x: scroll;\n    overflow: -moz-scrollbars-none;\n    -ms-overflow-style: none; }\n    .custom-scroll--content::-webkit-scrollbar {\n      width: 0 !important; }\n  .custom-scroll-line {\n    background: #9fa1a4;\n    position: relative;\n    width: 80%;\n    height: 8px;\n    left: 0;\n    border-radius: 3px;\n    transition: 0.1s width ease-out;\n    min-width: 40px; }\n    .custom-scroll-line-container {\n      width: 100%;\n      position: relative;\n      overflow: hidden; }\n      .custom-scroll-line-container:before {\n        content: '';\n        position: absolute;\n        top: 0;\n        left: 0;\n        right: 0;\n        height: 8px;\n        background: #f7f7f7;\n        border-radius: 3px; }\n  .custom-scroll--fixed .custom-scroll {\n    position: fixed;\n    padding: 8px 24px;\n    background: #f7f7f7;\n    transition: 0.1s left ease-out;\n    bottom: 0px; }\n    .custom-scroll--fixed .custom-scroll-line-container:before {\n      background: #ffffff; }\n\n.td {\n  vertical-align: middle;\n  color: #4b4b4b;\n  border: 1px solid #ccc;\n  background-color: #FFFFFF; }\n  .td > div:first-child {\n    min-width: 0;\n    text-align: center;\n    word-break: normal;\n    display: inline-table; }\n  .td input {\n    font-size: 1rem;\n    padding: 0.5rem;\n    margin: 0;\n    border: 0;\n    width: 100%;\n    height: 100%; }\n\n.frozen {\n  background: #f5f5f5; }\n\n.contextMenu {\n  position: fixed;\n  background: white;\n  box-shadow: 0px 2px 10px #999999; }\n  .contextMenu--option {\n    padding: 6px 50px 5px 10px;\n    min-width: 160px;\n    cursor: default;\n    font-size: 12px; }\n    .contextMenu--option:hover {\n      background: linear-gradient(to top, #555, #333);\n      color: white; }\n    .contextMenu--option:active {\n      color: #e9e9e9;\n      background: linear-gradient(to top, #555, #444); }\n    .contextMenu--option__disabled {\n      color: #999999;\n      pointer-events: none; }\n  .contextMenu--separator {\n    width: 100%;\n    height: 1px;\n    background: #CCCCCC;\n    margin: 0 0 0 0; }\n\n.menu {\n  font-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc; }\n\n.menu__item {\n  padding: 0.5em 1em;\n  color: #000;\n  cursor: pointer;\n  display: flex;\n  align-items: center; }\n\n.menu__item:hover {\n  background-color: #f2f2f2;\n  border-left: 4px solid #ccc; }\n\n.menu__icon {\n  margin-right: 8px; }\n\n.divider {\n  border-bottom: 1px solid #eee;\n  margin: 10px 0; }\n\n.context-sub-menu,\n.context-menu {\n  position: fixed;\n  background: #fff;\n  z-index: 9999999;\n  width: 120px;\n  margin: 0;\n  padding: 5px 0;\n  border-radius: 2px;\n  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);\n  font-size: 12px; }\n\n.context-menu .context-menu-item {\n  height: 30px;\n  display: flex;\n  align-items: center;\n  padding: 6px 10px;\n  cursor: pointer;\n  position: relative;\n  border-bottom: 1px solid #f2f2f2; }\n\n.context-menu .context-menu-item span {\n  display: block;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.context-menu-item:last-of-type {\n  border-bottom: none; }\n\n.context-menu .context-menu-item:hover {\n  background: #f2f2f2; }\n\n.context-menu .context-sub-menu {\n  position: absolute;\n  top: 0;\n  left: 100%;\n  display: none;\n  width: 100px; }\n\n.context-menu .context-menu-item:hover > .context-sub-menu {\n  display: block; }\n\n.context-menu.left .context-sub-menu {\n  left: 0;\n  transform: translateX(-100%); }\n\n.context-menu.top .context-sub-menu {\n  top: 100%;\n  transform: translateY(-100%); }\n\n.context-menu.left.top .context-sub-menu {\n  transform: translate(-100%, -100%); }\n";
+styleInject(css_248z$1);
 
 var NewTable = function (_a) {
     // Create an editable cell renderer
-    var columns = _a.columns, data = _a.data, _b = _a.exportExcel, exportExcel = _b === void 0 ? false : _b, fileName = _a.fileName, resetData = _a.resetData, undoData = _a.undoData, saveChanges = _a.saveChanges;
+    var columns = _a.columns, data = _a.data, _b = _a.exportExcel, exportExcel = _b === void 0 ? false : _b; _a.fileName; var resetData = _a.resetData, undoData = _a.undoData, saveChanges = _a.saveChanges;
     var EditableCell = function (_a) {
-        var 
-        // @ts-ignore
-        initialValue = _a.value, index = _a.row.index, id = _a.column.id;
+        var // @ts-ignore
+        initialValue = _a.value; _a.row.index; var id = _a.column.id;
         // We need to keep and update the state of the cell normally
         var _b = React.useState(initialValue), value = _b[0], setValue = _b[1];
         var onChange = function (e) {
@@ -74,10 +75,10 @@ var NewTable = function (_a) {
             setValue(initialValue);
         }, [initialValue]);
         if (id === 'MD') {
-            return React__default.createElement("input", { value: value, onChange: onChange, onBlur: onBlur, className: 'frozen', readOnly: true });
+            return React__default["default"].createElement("input", { value: value, onChange: onChange, onBlur: onBlur, className: 'frozen', readOnly: true });
         }
         else {
-            return React__default.createElement("input", { value: value, onChange: onChange, onBlur: onBlur });
+            return React__default["default"].createElement("input", { value: value, onChange: onChange, onBlur: onBlur });
         }
         // return <input value={value}  onChange={onChange} onBlur={onBlur} />
     };
@@ -94,8 +95,8 @@ var NewTable = function (_a) {
         defaultColumn: defaultColumn
         // updateMyData 
     }, reactTable.useBlockLayout), getTableProps = _c.getTableProps, getTableBodyProps = _c.getTableBodyProps, headerGroups = _c.headerGroups, rows = _c.rows, totalColumnsWidth = _c.totalColumnsWidth, prepareRow = _c.prepareRow;
-    var tHeadRef = React.useRef();
-    var tBodyRef = React.useRef();
+    React.useRef();
+    React.useRef();
     //   const doExportToExcel = useCallback(() => {
     //     const resultColumns = getColumns(columns, defaultColumn);
     //     const resultRows = getRows(rows, resultColumns);
@@ -118,12 +119,12 @@ var NewTable = function (_a) {
         var index = _a.index, style = _a.style;
         var row = rows[index];
         prepareRow(row);
-        return (React__default.createElement("div", tslib.__assign({}, row.getRowProps({
+        return (React__default["default"].createElement("div", tslib.__assign({}, row.getRowProps({
             style: style,
         }), { className: "tr" }), row.cells.map(function (cell, ind) {
-            return (React__default.createElement("div", tslib.__assign({}, cell.getCellProps({
+            return (React__default["default"].createElement("div", tslib.__assign({}, cell.getCellProps({
                 // @ts-ignore
-                className: "td " + cell.column.className
+                className: "td ".concat(cell.column.className)
             })), cell.render('Cell')));
         })));
     }, [prepareRow, rows]);
@@ -141,31 +142,31 @@ var NewTable = function (_a) {
     //   },
     //   [prepareRow, rows]
     // )
-    var react_table = React.useRef();
-    return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement(reactstrap.Button, { color: "primary", onClick: undoData, size: "md", className: "shadow-sm mr-1", "data-tip": true, "data-for": "UndoTip" },
-            React__default.createElement(reactFeather.CornerUpLeft, { className: "feather", size: 30, style: { marginTop: "-5px" } }),
-            React__default.createElement("span", { style: { padding: "5px" } }, "Undo")),
-        React__default.createElement(reactstrap.Button, { color: "primary", onClick: saveChanges, "data-tip": true, "data-for": "SaveChangeTip", className: "shadow-sm mr-1" }, "Save Changes"),
-        React__default.createElement(reactstrap.Button, { color: "primary", onClick: resetData, "data-tip": true, "data-for": "ResetTableTip", className: "shadow-sm mr-1" }, "Reset"),
+    React.useRef();
+    return (React__default["default"].createElement(React__default["default"].Fragment, null,
+        React__default["default"].createElement(reactstrap.Button, { color: "primary", onClick: undoData, size: "md", className: "shadow-sm mr-1", "data-tip": true, "data-for": "UndoTip" },
+            React__default["default"].createElement(reactFeather.CornerUpLeft, { className: "feather", size: 30, style: { marginTop: "-5px" } }),
+            React__default["default"].createElement("span", { style: { padding: "5px" } }, "Undo")),
+        React__default["default"].createElement(reactstrap.Button, { color: "primary", onClick: saveChanges, "data-tip": true, "data-for": "SaveChangeTip", className: "shadow-sm mr-1" }, "Save Changes"),
+        React__default["default"].createElement(reactstrap.Button, { color: "primary", onClick: resetData, "data-tip": true, "data-for": "ResetTableTip", className: "shadow-sm mr-1" }, "Reset"),
         exportExcel &&
-            (React__default.createElement(React__default.Fragment, null,
-                React__default.createElement(reactstrap.Button, { color: "primary", "data-tip": true, "data-for": "ExcelTableTip", className: "shadow-sm" },
-                    React__default.createElement(reactFeather.Download, { className: "feather", size: 30, style: { marginTop: "-5px" } }),
-                    React__default.createElement("span", { style: { padding: "5px" } }, "Export Excel")))),
-        React__default.createElement("div", { className: "react_table--wrapper", style: { marginTop: "30px" } },
-            React__default.createElement("table", tslib.__assign({}, getTableProps(), { 
+            (React__default["default"].createElement(React__default["default"].Fragment, null,
+                React__default["default"].createElement(reactstrap.Button, { color: "primary", "data-tip": true, "data-for": "ExcelTableTip", className: "shadow-sm" },
+                    React__default["default"].createElement(reactFeather.Download, { className: "feather", size: 30, style: { marginTop: "-5px" } }),
+                    React__default["default"].createElement("span", { style: { padding: "5px" } }, "Export Excel")))),
+        React__default["default"].createElement("div", { className: "react_table--wrapper", style: { marginTop: "30px" } },
+            React__default["default"].createElement("table", tslib.__assign({}, getTableProps(), { 
                 // ref={react_table} 
                 id: "react_table" }),
-                React__default.createElement("thead", null, headerGroups.map(function (headerGroup) { return (React__default.createElement("tr", tslib.__assign({}, headerGroup.getHeaderGroupProps()), headerGroup.headers.map(function (column) {
+                React__default["default"].createElement("thead", null, headerGroups.map(function (headerGroup) { return (React__default["default"].createElement("tr", tslib.__assign({}, headerGroup.getHeaderGroupProps()), headerGroup.headers.map(function (column) {
                     // @ts-ignore
-                    return column.hideHeader === false ? null : (React__default.createElement("th", tslib.__assign({}, column.getHeaderProps()), column.render("Header")));
+                    return column.hideHeader === false ? null : (React__default["default"].createElement("th", tslib.__assign({}, column.getHeaderProps()), column.render("Header")));
                 }))); })),
-                React__default.createElement("tbody", tslib.__assign({}, getTableBodyProps()),
-                    React__default.createElement(reactWindow.FixedSizeList, { height: 400, itemCount: rows.length, itemSize: 35, width: totalColumnsWidth + scrollBarSize }, RenderRow))))));
+                React__default["default"].createElement("tbody", tslib.__assign({}, getTableBodyProps()),
+                    React__default["default"].createElement(reactWindow.FixedSizeList, { height: 400, itemCount: rows.length, itemSize: 35, width: totalColumnsWidth + scrollBarSize }, RenderRow))))));
 };
 
-var Styles = styled.div(templateObject_1 || (templateObject_1 = tslib.__makeTemplateObject(["\n\n  padding: 1rem;\n\n  .frozen {\n    background: #f5f5f5;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    user-select: none;\n  }\n  .rt-th.frozen {\n    border-bottom: 1px solid #f8f8f8;\n  }\n\n  .table {\n    // display: inline-block;\n    // border-spacing: 0;\n    // border: 1px solid black;\n\n    .tr {\n      background-color: #FFFFFF;\n      :last-child {\n        .td {\n          // border-bottom: 0;\n        }\n      }\n    }\n\n    .th,\n    .td {\n      margin: 0;\n      padding: 0;\n      border: 1px solid #353535;\n      background-color: #FFFFFF;\n      :last-child {\n        border-right: 1px solid black;\n      }\n\n      input {\n        font-size: 1rem;\n        padding: 0.5rem;\n        margin: 0;\n        border: 0;\n        width: 100%;\n        height: 100%;\n      }\n    }\n  }\n"], ["\n\n  padding: 1rem;\n\n  .frozen {\n    background: #f5f5f5;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    user-select: none;\n  }\n  .rt-th.frozen {\n    border-bottom: 1px solid #f8f8f8;\n  }\n\n  .table {\n    // display: inline-block;\n    // border-spacing: 0;\n    // border: 1px solid black;\n\n    .tr {\n      background-color: #FFFFFF;\n      :last-child {\n        .td {\n          // border-bottom: 0;\n        }\n      }\n    }\n\n    .th,\n    .td {\n      margin: 0;\n      padding: 0;\n      border: 1px solid #353535;\n      background-color: #FFFFFF;\n      :last-child {\n        border-right: 1px solid black;\n      }\n\n      input {\n        font-size: 1rem;\n        padding: 0.5rem;\n        margin: 0;\n        border: 0;\n        width: 100%;\n        height: 100%;\n      }\n    }\n  }\n"])));
+var Styles = styled__default["default"].div(templateObject_1 || (templateObject_1 = tslib.__makeTemplateObject(["\n\n  padding: 1rem;\n\n  .frozen {\n    background: #f5f5f5;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    user-select: none;\n  }\n  .rt-th.frozen {\n    border-bottom: 1px solid #f8f8f8;\n  }\n\n  .table {\n    // display: inline-block;\n    // border-spacing: 0;\n    // border: 1px solid black;\n\n    .tr {\n      background-color: #FFFFFF;\n      :last-child {\n        .td {\n          // border-bottom: 0;\n        }\n      }\n    }\n\n    .th,\n    .td {\n      margin: 0;\n      padding: 0;\n      border: 1px solid #353535;\n      background-color: #FFFFFF;\n      :last-child {\n        border-right: 1px solid black;\n      }\n\n      input {\n        font-size: 1rem;\n        padding: 0.5rem;\n        margin: 0;\n        border: 0;\n        width: 100%;\n        height: 100%;\n      }\n    }\n  }\n"], ["\n\n  padding: 1rem;\n\n  .frozen {\n    background: #f5f5f5;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    user-select: none;\n  }\n  .rt-th.frozen {\n    border-bottom: 1px solid #f8f8f8;\n  }\n\n  .table {\n    // display: inline-block;\n    // border-spacing: 0;\n    // border: 1px solid black;\n\n    .tr {\n      background-color: #FFFFFF;\n      :last-child {\n        .td {\n          // border-bottom: 0;\n        }\n      }\n    }\n\n    .th,\n    .td {\n      margin: 0;\n      padding: 0;\n      border: 1px solid #353535;\n      background-color: #FFFFFF;\n      :last-child {\n        border-right: 1px solid black;\n      }\n\n      input {\n        font-size: 1rem;\n        padding: 0.5rem;\n        margin: 0;\n        border: 0;\n        width: 100%;\n        height: 100%;\n      }\n    }\n  }\n"])));
 var PureTable = function (props) {
     var arr = props.Data;
     var nestedWell = props.HeaderWell;
@@ -206,7 +207,7 @@ var PureTable = function (props) {
                 // @ts-ignore
                 var valores = Number(arr[row][index]);
                 // @ts-ignore
-                currentRow2["" + c.accessor] = valores;
+                currentRow2["".concat(c.accessor)] = valores;
             });
         });
         rows.push(currentRow2);
@@ -294,18 +295,29 @@ var PureTable = function (props) {
         //   });
     }
     var resetData = function () { return setData(originalData); };
-    return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement(Styles, null,
-            React__default.createElement(NewTable, { columns: cols, data: data, 
+    return (React__default["default"].createElement(React__default["default"].Fragment, null,
+        React__default["default"].createElement(Styles, null,
+            React__default["default"].createElement(NewTable, { columns: cols, data: data, 
                 //  updateMyData={updateMyData}
                 resetData: resetData, exportExcel: true, fileName: "table", undoData: undoData, saveChanges: saveChanges }))));
 };
 var templateObject_1;
 
 var Button = function (props) {
-    return React__default.createElement("button", null, props.label);
+    return React__default["default"].createElement("button", null, props.label);
+};
+
+var css_248z = ".test-component {\n    background-color: var(--background);\n    color: var(--font-color);\n    border: 1px solid var(--library-black);\n    padding: 16px;\n    width: 360px;\n    text-align: center;\n  }\n  \n  .test-component .heading {\n    font-size: var(--heading-font-size);\n  }";
+styleInject(css_248z);
+
+var TestComponent = function (_a) {
+    var heading = _a.heading, content = _a.content;
+    return (React__default["default"].createElement("div", { "data-testid": "test-component", className: "test-component" },
+        React__default["default"].createElement("h1", { "data-testid": "test-component__heading", className: "heading" }, heading),
+        React__default["default"].createElement("div", { "data-testid": "test-component__content" }, content)));
 };
 
 exports.Button = Button;
 exports.PureTable = PureTable;
+exports.TestComponent = TestComponent;
 //# sourceMappingURL=index.js.map
